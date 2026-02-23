@@ -1,0 +1,64 @@
+import random
+import time
+
+saldo = 100
+simbolos = ["🍒", "🍋", "🍉", "🍇", "💎"]
+
+def girar_maquina():
+    final1 = random.choice(simbolos)
+    final2 = random.choice(simbolos)
+    final3 = random.choice(simbolos)
+
+    passos = 25  # quantidade de trocas
+    pausa_inicial = 0.03
+    pausa_final = 0.5  # bem lento no final
+
+    for i in range(passos):
+        # fórmula de desaceleração progressiva
+        progresso = i / passos
+        pausa = pausa_inicial + (pausa_final - pausa_inicial) * (progresso ** 2)
+
+        r1 = random.choice(simbolos)
+        r2 = random.choice(simbolos)
+        r3 = random.choice(simbolos)
+
+        print("\r🎰 ", r1, r2, r3, end="")
+        time.sleep(pausa)
+
+    # Resultado final verdadeiro
+    print("\r🎰 ", final1, final2, final3)
+    return final1, final2, final3
+
+
+print("🎰 Bem-vinda ao Cassino!")
+print("Você começa com R$ 100")
+
+while saldo > 0:
+    print("\n💰 Saldo atual: R$", saldo)
+    aposta = float(input("Digite o valor da aposta (0 para sair): "))
+
+    if aposta == 0:
+        print("Você saiu com R$", saldo)
+        break
+
+    if aposta > saldo:
+        print("Saldo insuficiente!")
+        continue
+
+    print("Girando...")
+    r1, r2, r3 = girar_maquina()
+
+    if r1 == r2 == r3:
+        premio = aposta * 5
+        saldo += premio
+        print("🎉 JACKPOT! Você ganhou R$", premio)
+    elif r1 == r2 or r2 == r3 or r1 == r3:
+        premio = aposta * 2
+        saldo += premio
+        print("✨ Duas iguais! Você ganhou R$", premio)
+    else:
+        saldo -= aposta
+        print("❌ Você perdeu R$", aposta)
+
+if saldo <= 0:
+    print("💸 Você ficou sem dinheiro!")
