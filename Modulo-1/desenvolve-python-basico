@@ -1,0 +1,14 @@
+# 1. Leia e armazene o número n que se deseja multiplicar por 9 (Entrada)
+n = int(input("Digite um número para multiplicar por 9: "))
+
+# 2. Subtrair n - 1 e armazenar como o primeiro dígito n1 (Processamento)
+n1 = n - 1
+
+# 3. Subtrair 10 - n e armazenar como o segundo dígito n2 (Processamento)
+n2 = 10 - n
+
+# 4. Realize a expressão (n1 x 10) + n2 e armazene como resultado final r (Processamento)
+r = (n1 * 10) + n2
+
+# 5. Apresente r (Saída)
+print("O resultado da multiplicação por 9 é:", r)
