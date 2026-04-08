@@ -1,0 +1,15 @@
+n1 = int(input("Digite o primeiro numero: "))
+n2 = int(input("Digite o segundo numero: "))
+n3 = int(input("Digite o terceiro numero: "))
+n4 = int(input("Digite o quarto numero: "))
+n5 = int(input("Digite o quinto numero: "))
+n6 = int(input("Digite o sexto numero: "))
+n7 = int(input("Digite o sétimo numero: "))
+n8 = int(input("Digite o oitavo numero: "))
+n9 = int(input("Digite o nono numero: "))
+n10 = int(input("Digite o décimo numero: "))
+
+resultado = (n1 + n2 + n3 + n4 + n5 + n6 + n7 + n8 + n9 + n10) / 10
+print ( )
+print(f"A média dos números é {resultado}")
+print ( )
